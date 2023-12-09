@@ -8,6 +8,15 @@ data = pd.read_pickle('sales_data_anomaly.pkl')
 data['Time'] = data['Time'].dt.strftime('%Y-%m-%d')
 
 def calculate_majority_voting(data, threshold):
+    """
+    Takes in a dataframe and a threshold value and creates new column for majority voting
+
+    Parameters
+    data : dataframe
+    threshold : int as percentage
+
+    returns: dataframe with new column for majority voting
+    """
     anomaly_columns = ['Outlier_IF', 'Outlier_LOF', 'Outlier_IQR', 'Outlier_percentile']
     data['Sum_of_Anomalies'] = data[anomaly_columns].sum(axis=1)
     

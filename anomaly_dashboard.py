@@ -4,7 +4,7 @@ import plotly.express as px
 import numpy as np
 import statsmodels.api as sm
 
-data = pd.read_pickle('sales_data_anomaly.pkl')
+data = pd.read_pickle('data/sales_data_anomaly.pkl')
 data['Time'] = data['Time'].dt.strftime('%Y-%m-%d')
 
 def calculate_majority_voting(data, threshold):
